@@ -230,38 +230,38 @@ Outputs:
     Description: A list of the public subnets
     Value: !Join [",", [!Ref PublicSubnetA, !Ref PublicSubnetB]]
     Export:
-      Name: task-cfn-public-subnets
+      Name: task-public-subnets
     DeletionPolicy: Retain
 
   PrivateSubnets:
     Description: A list of the private subnets
     Value: !Join [",", [!Ref PrivateSubnetA, !Ref PrivateSubnetB]]
     Export:
-      Name: task-cfn-private-subnets
+      Name: task-private-subnets
 
   PublicSubnetA:
     Description: A reference to the public subnet in the 1st Availability Zone
     Value: !Ref PublicSubnetA
     Export:
-      Name: task-cfn-public-subnet-a-id
+      Name: task-public-subnet-a-id
 
   PublicSubnetB:
     Description: A reference to the public subnet in the 2nd Availability Zone
     Value: !Ref PublicSubnetB
     Export:
-      Name: task-cfn-public-subnet-b-id
+      Name: task-public-subnet-b-id
 
   PrivateSubnetA:
     Description: A reference to the private subnet in the 1st Availability Zone
     Value: !Ref PrivateSubnetA
     Export:
-      Name: task-cfn-private-subnet-a-id
+      Name: task-private-subnet-a-id
 
   PrivateSubnetB:
     Description: A reference to the private subnet in the 2nd Availability Zone
     Value: !Ref PrivateSubnetB
     Export:
-      Name: task-cfn-private-subnet-b-id
+      Name: task-private-subnet-b-id
 
   PrivateRouteTableB:
     Description: A reference to the private route table for the PrivateSubnetB
@@ -291,4 +291,4 @@ Outputs:
     Description: Security group with no ingress rule
     Value: !Ref NoIngressSecurityGroup
     Export:
-      Name: task6-cfn-no-ingress-sg-id
+      Name: task-no-ingress-sg-id
