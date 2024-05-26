@@ -9,7 +9,7 @@ Parameters:
   S3BucketName:
     Description: "Unique name for S3 bucket"
     Type: "String"
-    Default: "task6-naman-bucket"
+    Default: "task6-bucket"
 
   AMIId:
     Description: Region specific image from the Parameter Store
@@ -22,7 +22,7 @@ Resources:
     DeletionPolicy: Retain
     Properties:
       GroupName: ami-web-server-sg
-      VpcId: !ImportValue task6-cfn-vpc-id
+      VpcId: !ImportValue task-vpc-id
       GroupDescription: "Allow HTTPS to port 443"
       SecurityGroupIngress:
         - CidrIp: 0.0.0.0/0 ## HTTP rule
@@ -46,7 +46,7 @@ Resources:
       Tags:
         - Key: "Name"
           Value: "ami-web-server-cfn"
-      SubnetId: !ImportValue task6-cfn-public-subnet-a-id
+      SubnetId: !ImportValue task6-public-subnet-a-id
       UserData:
         Fn::Base64: |
           #!/bin/bash
